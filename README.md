@@ -22,4 +22,5 @@ Hosted on Vercel, the company behind Next.
 
 I used [The News API](https://www.thenewsapi.com/) to retrieve the articles.
 
-Design and Styles completely from me, hopefully it doesn't look too bad :)
+Design and Styles from me, hopefully it doesn't look too bad :)
+Stole some codepen styles to try and make it look decent, credit where its due.
