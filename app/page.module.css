@@ -34,6 +34,7 @@
 .articleImage{
   width: 100%;
   height: calc(90vw * .50) ;
+  position: relative;
 }
 .articleContent{
   padding: 5px;

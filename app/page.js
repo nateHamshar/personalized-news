@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import styles from "./page.module.css";
 import { checkStorage, getArticles, shuffleArray} from "./actions";
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 export default function Home() {
@@ -77,10 +78,12 @@ export default function Home() {
             <li>Loading...</li>
           ) : (
             articlesArray.length > 0 ? (
-              articlesArray.map((article, i) => (
-                <li className={styles.articleItem} key={i}>
+              articlesArray.map((article) => (
+                <li className={styles.articleItem} key={article.uuid}>
                   <a href={article.url} target="_blank" rel="noopener noreferrer" className={styles.liLink}>
-                    <img src={article.image_url} alt="No image provided" className={styles.articleImage} loading="lazy" />
+                    <div className={styles.articleImage}>
+                    <Image src={`${article.image_url}`} alt="No image provided" className={styles.articleImageComp} loading="lazy" fill={true} />
+                    </div>
                     <div className={styles.articleContent}>
                       <h1 className={styles.articleTitle}>{article.title}</h1>
                       <p className={styles.articleDescription}>{article.description}</p>
