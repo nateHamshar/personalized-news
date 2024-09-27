@@ -1,65 +1,99 @@
 'use client'
 import { useEffect, useState } from "react";
 import styles from "./page.module.css";
-import { checkStorage, addToStorage, getArticles } from "./actions";
-
+import { checkStorage, getArticles, shuffleArray} from "./actions";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
 
   // array containing stored preferences
-  const [localPreferences, setLocalPreferences] = useState([]);
-  
-  // value of topic input
-  const [newTopic, setNewTopic] = useState("");
+  const [localPreferences, setLocalPreferences] = useState(null);
 
   // array of news articles from The News API
-  const [articles, setArticles] = useState([])
-
+  const [articlesArray, setArticlesArray] = useState([]);
+  const [isLoading, setIsLoading] = useState(true)
   
   // checks whether user has personalized topics in storage
   // as soon as page loads
   useEffect(() => {
-  // will either return null or a string
-  const storageString = checkStorage();
 
-
-  // first check if there is any preferences in storage
-  if (storageString == null) {
-    console.log("nothing in storage")
-  } else{
-
-    /* -> there must be at least one preference
-       -> check to see if there are more than one,
-          where multiple will be split by hyphen
-   */
-    if (storageString.indexOf("-") != -1){
-      setLocalPreferences(storageString.split("-"))
-    } else{
-      setLocalPreferences([storageString])
+    const storageString = checkStorage();
+    console.log(storageString)
+    
+  
+    // first check if storageString is null and redirect if needed
+    if (storageString == null){
+        router.push('/settings');
+        return
     }
-  }
-  },[]);
+
+    const tempArr = storageString.split("-");
+
+    // check if there is only 2 topics, redirect if needed
+    if (tempArr.length < 3) {
+      router.push('/settings')
+      return
+    }
+
+    // if we got this far there must be 3 topics
+    // so now we can populate localPreferences array
+    setLocalPreferences(tempArr);
+
+  },[router]);
 
   // waits for local preferences to be changed
   useEffect(() => {  
-    if (localPreferences.length == 7){
-      getArticles(localPreferences);
-    }
-  },[localPreferences]);
+    const fetchArticles = async () => {
+      if (localPreferences) {
+        try {
+          const articles = await getArticles(localPreferences);
+          const shuffledArticles = await shuffleArray(articles);
+          setArticlesArray(shuffledArticles);
+        } catch (error) {
+          console.error("Error fetching articles:", error);
+        } finally {
+          setIsLoading(false);
+        }
+      }
+    };
 
-
+    fetchArticles();
+  }, [localPreferences]);
+  
 
   return (
-    <div className={styles.main}>
-      <h1>In storage: {localPreferences.join(" ")}</h1>
+    <main className={styles.main}>
+      <header className={styles.homeHeader}>
+                <h1 className={styles.homeTitle}>Your News Feed</h1>
+                <Link href="/settings"><img width="50" height="50" src="https://img.icons8.com/ios-filled/50/settings.png" alt="settings"/></Link>
+      </header>
       
-      <form action="">
-        <input type="text" placeholder="enter a topic" name="topic" onChange={(e) => setNewTopic(e.target.value)}/>
-        <button type="submit" onClick={() => addToStorage(newTopic)}>add</button>
-      </form>
-      <br /><br /><br /><br /><br />
-      <button onClick={() => localStorage.clear()}>Clear Storage</button>
-  
-    </div>
+      <section className={styles.contentSection}>
+        <ul className={styles.articleList}>
+        
+        {isLoading ? (
+            <li>Loading...</li>
+          ) : (
+            articlesArray.length > 0 ? (
+              articlesArray.map((article, i) => (
+                <li className={styles.articleItem} key={i}>
+                  <a href={article.url} target="_blank" rel="noopener noreferrer" className={styles.liLink}>
+                    <img src={article.image_url} alt="No image provided" className={styles.articleImage} loading="lazy" />
+                    <div className={styles.articleContent}>
+                      <h1 className={styles.articleTitle}>{article.title}</h1>
+                      <p className={styles.articleDescription}>{article.description}</p>
+                    </div>
+                  </a>
+                </li>
+              ))
+            ) : (
+              <li>No articles found.</li>
+            )
+          )}
+        </ul>
+      </section>
+    </main>
   );
 }

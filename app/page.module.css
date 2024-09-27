@@ -1,4 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&display=swap');
+
 .main{
-  max-width: 80vw;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.homeHeader{
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  padding: 8px 16px;
+}
+.homeTitle{
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-weight: 500;
+  font-size: 1.5em;
+  margin-top: auto;
+}
+
+
+
+.articleItem{
+  width: 85vw;
+  overflow: hidden;
+  margin: 2rem auto;
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+.liLink{
+  text-decoration: none;
+  color: black;
+}
+.articleImage{
+  width: 100%;
+  height: calc(90vw * .50) ;
+}
+.articleContent{
+  padding: 5px;
+}
+.articleTitle{
+  font-weight: 400;
+  line-height: 1em;
+  letter-spacing: 1px;
+}
+.articleDescription{
+  letter-spacing: 1px;
+  margin-top: 1rem;
 }

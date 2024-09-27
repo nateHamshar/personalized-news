@@ -30,6 +30,14 @@ export function addToStorage(newTopic){
     }
 };
 
+// removes a topic from local storage, takes an index as param
+export function removeFromStorage(index){
+    const tempArray = localStorage.getItem("preferences").split("-");
+    tempArray.splice(index, 1);
+    localStorage.setItem("preferences", tempArray.join("-"))
+    location.reload()
+};
+
 // fetches articles based on user's chosen topics
 // takes an array as param
 export async function getArticles(topics) {
@@ -48,8 +56,13 @@ export async function getArticles(topics) {
             }
         
             const json = await response.json();
-            arrayOfArticles.push(json);
+
+            const tempArr = json.data;
     
+            tempArr.forEach((article) => {
+                arrayOfArticles.push(article)
+            })
+
         } catch (error) {
             console.error(error.message);
         }
@@ -58,19 +71,13 @@ export async function getArticles(topics) {
     console.log(arrayOfArticles)
     return arrayOfArticles
 
-    /*
-
-    try {
-        const response = await fetch(url);
-        if (!response.ok) {
-        throw new Error(`Response status: ${response.status}`);
-        }
-    
-        const json = await response.json();
-        console.log(json);
-
-    } catch (error) {
-        console.error(error.message);
-    }
-  */    
 };
+
+// Fisher-Yates shuffle function
+export async function shuffleArray(array){
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]]; // Swap elements
+    }
+    return array; // Return shuffled array
+  };

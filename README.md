@@ -16,7 +16,7 @@ But, if you want to change your interests, you can do that too!
 
 
 ### Tech Stack
-This project is built with Next.js, might have been a little overkill....
+This project is built with Next.js. This is strictly a client-side app, so using Next may be a bit overkill. 
 
 Hosted on Vercel, the company behind Next.
 
