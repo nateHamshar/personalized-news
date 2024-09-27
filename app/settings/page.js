@@ -4,7 +4,7 @@ import { checkStorage, addToStorage, removeFromStorage } from "../actions";
 import Link from "next/link";
 import "./page.css";
 
-export default function settings(){
+export default function Settings(){
     // value of topic input
     const [newTopic, setNewTopic] = useState("");
     const [storedTopics, setStoredTopics] = useState([]);
