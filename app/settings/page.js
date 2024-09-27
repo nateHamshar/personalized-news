@@ -4,7 +4,7 @@ import { checkStorage, addToStorage, removeFromStorage } from "../actions";
 import Link from "next/link";
 import "./page.css";
 
-const settings = () => {
+export default function settings(){
     // value of topic input
     const [newTopic, setNewTopic] = useState("");
     const [storedTopics, setStoredTopics] = useState([]);
@@ -50,5 +50,3 @@ const settings = () => {
         </main>
     );
 }
- 
-export default settings;
