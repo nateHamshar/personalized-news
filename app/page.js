@@ -82,7 +82,7 @@ export default function Home() {
                 <li className={styles.articleItem} key={article.uuid}>
                   <a href={article.url} target="_blank" rel="noopener noreferrer" className={styles.liLink}>
                     <div className={styles.articleImage}>
-                    <Image src={`${article.image_url}`} alt="No image provided" className={styles.articleImageComp} loading="lazy" fill={true} />
+                    <Image src={article.image_url} alt="No image provided" className={styles.articleImageComp} loading="lazy" fill={true} />
                     </div>
                     <div className={styles.articleContent}>
                       <h1 className={styles.articleTitle}>{article.title}</h1>
