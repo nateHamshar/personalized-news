@@ -1,36 +1,25 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Here is your **Personalized News Feed**!
 
-## Getting Started
+The idea of this project is to retrieve news articles about topics that are interesting for you
 
-First, run the development server:
+## The idea of this project is simple
+First you will be asked to enter three topics that you enjoy.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Next, it will retrieve your tailored news feed from The News API.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then all you have to do is read through them!
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## No Sign up required!
+Your interests will be saved to your local storage, so whenever you want to find something to read they will be ready for you.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+But, if you want to change your interests, you can do that too!
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+### Tech Stack
+This project is built with Next.js, might have been a little overkill....
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Hosted on Vercel, the company behind Next.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+I used [The News API](https://www.thenewsapi.com/) to retrieve the articles.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Design and Styles completely from me, hopefully it doesn't look too bad :)
