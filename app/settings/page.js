@@ -41,7 +41,7 @@ export default function Settings(){
                             return (
                                 <li className="topic" key={storedTopics.indexOf(topic)}>
                                     <p className="topicTitle">{topic}</p>
-                                    <button onClick={() => removeFromStorage(storedTopics.indexOf(topic))} className="topicBtn"><img width="20" height="20" src="https://img.icons8.com/fluency-systems-regular/50/x.png" alt="x"/></button>
+                                    <button onClick={() => removeFromStorage(storedTopics.indexOf(topic))} className="topicBtn"><Image width={20} height={20} src="https://img.icons8.com/fluency-systems-regular/50/x.png" alt="x"/></button>
                                 </li>
                             )
                         })
