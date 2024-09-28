@@ -6,7 +6,7 @@ import "./page.css";
 import Image from "next/image";
 
 export default function Settings(){
-    // value of topic input
+    {/* value of topic input */}
     const [newTopic, setNewTopic] = useState("");
     const [storedTopics, setStoredTopics] = useState([]);
 
@@ -34,7 +34,7 @@ export default function Settings(){
 
             <section className="topicsSection">
                 <h2 className="savedTopicsHeader">Saved Topics</h2>
-                <p className="disclaimer"><span className="divider">// </span>You must have three topics for app to work!</p>
+                <p className="disclaimer"><span className="divider">&#47;&#47; </span>You must have three topics for app to work!</p>
                 <ul className="topicsList">
                     {
                         storedTopics.map((topic) => {
