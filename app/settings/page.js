@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { checkStorage, addToStorage, removeFromStorage } from "../actions";
 import Link from "next/link";
 import "./page.css";
+import Image from "next/image";
 
 export default function Settings(){
     // value of topic input
@@ -22,7 +23,7 @@ export default function Settings(){
         <main className="settingsPage">
             <header className="settingsHeader">
                 <h1 className="settingsTitle">Preferences <span className="divider">&</span> Settings</h1>
-                <Link href="/" className="navBtn"><img width="50" height="50" src="https://img.icons8.com/ios-filled/50/home.png" alt="home"/></Link>
+                <Link href="/" className="navBtn"><Image width={50} height={50} src="https://img.icons8.com/ios-filled/50/home.png" alt="home"/></Link>
             </header>
 
             <form action="" className="topicForm">

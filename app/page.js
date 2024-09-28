@@ -68,7 +68,7 @@ export default function Home() {
     <main className={styles.main}>
       <header className={styles.homeHeader}>
                 <h1 className={styles.homeTitle}>Your News Feed</h1>
-                <Link href="/settings"><img width="50" height="50" src="https://img.icons8.com/ios-filled/50/settings.png" alt="settings"/></Link>
+                <Link href="/settings"><Image width={50} height={50} src="https://img.icons8.com/ios-filled/50/settings.png" alt="settings"/></Link>
       </header>
       
       <section className={styles.contentSection}>
