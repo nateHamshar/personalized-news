@@ -24,7 +24,7 @@ This project is built with Next.js. This is strictly a client-side app, so using
 
 Hosted on Vercel, the company behind Next.
 
-I used [The News API](https://www.thenewsapi.com/) to retrieve the articles.
+I used [The News API](https://www.thenewsapi.com/) to retrieve the articles. The News API has a 100 daily request limit, so if you are getting a message that says no articles found or another error the limit has probably been reached.
 
 Design and Styles from me, hopefully it doesn't look too bad :)
 Stole some codepen styles to try and make it look decent, credit where its due.
