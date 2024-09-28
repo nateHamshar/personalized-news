@@ -4,9 +4,11 @@ The idea of this project is to retrieve news articles about topics that are inte
 
 ## The idea of this project is simple
 First you will be asked to enter three topics that you enjoy.
+
 ![image](https://github.com/user-attachments/assets/33bb2440-12dc-4b17-b277-e65a64acd488)
 
 Next, it will retrieve your tailored news feed from The News API.
+
 ![image](https://github.com/user-attachments/assets/541d644f-a2a4-45f4-99f3-c0a5b69e4b32)
 
 Then all you have to do is read through them!
